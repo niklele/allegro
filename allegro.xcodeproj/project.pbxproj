@@ -27,7 +27,7 @@
 		6B29A8471E6F3F24007528A2 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B29A8461E6F3F24007528A2 /* MGSwipeTableCell.framework */; };
 		6B2CA8BF1E43815A009BA7FC /* NoteGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2CA8BE1E43815A009BA7FC /* NoteGeometry.swift */; };
 		6B3290F11E3C49B200AE693B /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3290F01E3C49B200AE693B /* Audio.swift */; };
-		6B3290F31E3C4DD900AE693B /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3290F21E3C4DD900AE693B /* AudioKit.framework */; };
+		6B3290F31E3C4DD900AE693B /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3290F21E3C4DD900AE693B /* AudioKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6B3290F51E3C5BFB00AE693B /* MusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3290F41E3C5BFA00AE693B /* MusicKit.framework */; };
 		6B3290F71E3D4F9700AE693B /* TTGSnackbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3290F61E3D4F9700AE693B /* TTGSnackbar.framework */; };
 		6B3290F91E3D4FEB00AE693B /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3290F81E3D4FEB00AE693B /* Snackbar.swift */; };
@@ -535,7 +535,6 @@
 				84B0A79678CCABA9C190EA01 /* [CP] Embed Pods Frameworks */,
 				DA42C8FAD02770EFCC9A5FF6 /* [CP] Copy Pods Resources */,
 				6B6E271E1E2897A400F9CF66 /* ShellScript */,
-				6BE1E92F1E6C848000B01790 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -596,7 +595,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = gigaunicorn;
 				TargetAttributes = {
 					6B6E26E91E288F8200F9CF66 = {
@@ -691,7 +690,7 @@
 		};
 		6B6E271E1E2897A400F9CF66 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -713,19 +712,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		6BE1E92F1E6C848000B01790 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh";
 		};
 		8328071F08C6972560FF5516 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -966,7 +952,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -974,11 +962,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: nik.lele@gmail.com (WWM99APKX4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_ACTIVITY_MODE = disable;
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
@@ -1000,9 +992,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1018,7 +1011,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1026,11 +1021,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: nik.lele@gmail.com (WWM99APKX4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_ACTIVITY_MODE = disable;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1045,8 +1044,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lstdc++";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;

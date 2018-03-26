@@ -90,7 +90,11 @@ class Audio {
     }
 
     func start() {
-        AudioKit.start()
+        do {
+           try AudioKit.start()
+        } catch {
+            Log.error?.message("Unable to start AudioKit")
+        }
     }
     
     func subscribe(_ observer: AudioObserver) {
